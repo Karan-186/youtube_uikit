@@ -7,8 +7,14 @@
 
 import Foundation
 
+protocol ModelDelegate{
+    
+    func videosFetched (_ videos : [Video])
+}
 
 class Model {
+    
+    var delgate : ModelDelegate?
     
     
     func getVideos() {
@@ -38,7 +44,13 @@ class Model {
                 decoder.dateDecodingStrategy = .iso8601
                 
                 let response = try decoder.decode(Response.self, from: data!)
-
+                
+                if response.items != nil {
+                    //Call the "Videos Fetched" method of the delgate
+                    DispatchQueue.main.async {
+                        self.delgate?.videosFetched(response.items!)
+                    }
+                }
                 
                  dump(response)
             }
