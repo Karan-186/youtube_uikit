@@ -13,7 +13,7 @@
 
 import Foundation
 
-/*
+
 struct Constants {
     
     static var API_KEY = ""
@@ -22,4 +22,4 @@ struct Constants {
     static var VIDEOCELL_ID = "VideoCell"
     static var YT_EMBED_URL = "https://www.youtube.com/embed/"
 }
-*/
+
